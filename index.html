@@ -1,4 +1,62 @@
 <!DOCTYPE html>
 <html>
+	<head>
 
+	</head>
+	<body>
+		<h1>Worse GPT</h1>
+		<h2>Demo</h2>
+		<h3>Options:</h3>
+		<div style="display: flex; ">
+			<p>
+				<b>Model: </b>
+			</p>
+			<select name="Model" id="Model">
+				<option>gpt-3.5-turbo</option>
+				<option>gpt-3.5-turbo-16k</option>
+				<option>gpt-3.5-turbo-1106</option>
+				<option>gpt-3.5-turbo-0125</option>
+				<option>gpt-4</option>
+				<option>gpt-4-32k</option>
+				<option>gpt-4-1106-preview</option>
+				<option>gpt-4-0125-preview</option>
+				<option>gpt-4-turbo</option>
+				<option>gpt-4-turbo-2024-04-09</option>
+				<option>gpt-4o</option>
+				<option>gpt-4o-2024-05-13</option>
+			</select>
+		</div>
+		<div style="display: flex">
+			<p>
+				<b>Max Token: </b>
+			</p>
+		</div>
+		<div style="display: flex">
+			<p>
+				<b>Temperature: </b>
+			</p>
+		</div>
+		<div style="display: flex">
+			<p>
+				<b>Presence penalty: </b>
+			</p>
+		</div>
+		<div style="display: flex">
+			<p>
+				<b>Presence penalty: </b>
+			</p>
+		</div>
+		<p>
+			<b>Frequency Penalty: </b>
+		</p>
+		<textarea style='height: 200px;width: 100%;' id="Convo"> </textarea>
+		<br>
+		<h3>Input:</h3>
+		<div style="display: flex">
+			<input type="text" id="userText" style='width: 100%;margin-right: 5px'>
+			<button type="button">
+				Send
+			</button>
+		</div>
+	</body>
 </html>
