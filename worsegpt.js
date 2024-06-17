@@ -34,6 +34,7 @@ function message(instr = ""){
 			"role": "user",
 			"content": instr
 		}
-		convo.messages.push()
+		convo.messages.push(newmsg)
+		gpt_send()
 	}
 }

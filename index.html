@@ -9,6 +9,13 @@
 			}
 		</style>
 		<script src="worsegpt.js"></script>
+		<script type="text/javascript">
+			document.onload = gpt_init();
+			function submit(){
+				strcontent = document.getElementById("userText").value;
+				message(strcontent);
+			}
+		</script>
 	</head>
 	<body>
 		<h1>Worse GPT</h1>
@@ -80,8 +87,8 @@ Respond using Markdown.</textarea>
 		<br>
 		<h3>Input:</h3>
 		<div style="display: flex">
-			<input type="text" id="userText" style='width: 100%; margin-right: 5px'>
-			<button type="button">
+			<textarea type="text" id="userText" style="width: 100%"></textarea>
+			<button type="button" onclick="submit()">
 				Send
 			</button>
 		</div>
