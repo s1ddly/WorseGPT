@@ -1,59 +1,86 @@
 <!DOCTYPE html>
 <html>
 	<head>
-
+		<style>
+			p {
+			    margin-top: 0px;
+				margin-bottom: 0px;
+				width: 50%;
+			}
+		</style>
+		<script src="worsegpt.js"></script>
 	</head>
 	<body>
 		<h1>Worse GPT</h1>
 		<h2>Demo</h2>
-		<h3>Options:</h3>
-		<div style="display: flex; ">
+		<div style="display: flex">
+			<p>
+				<b>API Key: </b>
+			</p>
+			<input type="text" id="key">
+		</div>
+		<div style="display: flex">
 			<p>
 				<b>Model: </b>
 			</p>
 			<select name="Model" id="Model">
-				<option>gpt-3.5-turbo</option>
-				<option>gpt-3.5-turbo-16k</option>
-				<option>gpt-3.5-turbo-1106</option>
-				<option>gpt-3.5-turbo-0125</option>
-				<option>gpt-4</option>
-				<option>gpt-4-32k</option>
-				<option>gpt-4-1106-preview</option>
-				<option>gpt-4-0125-preview</option>
-				<option>gpt-4-turbo</option>
-				<option>gpt-4-turbo-2024-04-09</option>
-				<option>gpt-4o</option>
-				<option>gpt-4o-2024-05-13</option>
+				<option value="gpt-3.5-turbo">gpt-3.5-turbo</option>
+				<option value="gpt-3.5-turbo-16k">gpt-3.5-turbo-16k</option>
+				<option value="gpt-3.5-turbo-1106">gpt-3.5-turbo-1106</option>
+				<option value="gpt-3.5-turbo-0125">gpt-3.5-turbo-0125</option>
+				<option value="gpt-4">gpt-4</option>
+				<option value="gpt-4-32k">gpt-4-32k</option>
+				<option value="gpt-4-1106-preview">gpt-4-1106-preview</option>
+				<option value="gpt-4-0125-preview">gpt-4-0125-preview</option>
+				<option value="gpt-4-turbo">gpt-4-turbo</option>
+				<option value="gpt-4-turbo-2024-04-09">gpt-4-turbo-2024-04-09</option>
+				<option value="gpt-4o" selected >gpt-4o</option>
+				<option value="gpt-4o-2024-05-13">gpt-4o-2024-05-13</option>
 			</select>
 		</div>
 		<div style="display: flex">
 			<p>
 				<b>Max Token: </b>
 			</p>
+			<input type="text" id="maxToken" value="4000">
 		</div>
 		<div style="display: flex">
 			<p>
 				<b>Temperature: </b>
 			</p>
+			<input type="text" id="temperature" value="1">
+		</div>
+		<div style="display: flex">
+			<p>
+				<b>Top P: </b>
+			</p>
+			<input type="text" id="topP" value="1">
 		</div>
 		<div style="display: flex">
 			<p>
 				<b>Presence penalty: </b>
 			</p>
+			<input type="text" id="presencePenalty" value="0">
 		</div>
-		<div style="display: flex">
+		<div style="display: flex">	
 			<p>
-				<b>Presence penalty: </b>
+				<b>Frequency Penalty: </b>
 			</p>
+			<input type="text" id="frequencyPenalty" value="0">
 		</div>
-		<p>
-			<b>Frequency Penalty: </b>
-		</p>
-		<textarea style='height: 200px;width: 100%;' id="Convo"> </textarea>
+		<div style="display: flex">	
+			<p>
+				<b>System Prompt: </b>
+			</p>
+			<textarea type="text" id="systemPrompt" style="width: 50%">You are ChatGPT, a large language model trained by OpenAI.
+Carefully heed the user's instructions.
+Respond using Markdown.</textarea>
+		</div>
+		<textarea style='height: 200px; width: 100%;' id="Convo"> </textarea>
 		<br>
 		<h3>Input:</h3>
 		<div style="display: flex">
-			<input type="text" id="userText" style='width: 100%;margin-right: 5px'>
+			<input type="text" id="userText" style='width: 100%; margin-right: 5px'>
 			<button type="button">
 				Send
 			</button>
