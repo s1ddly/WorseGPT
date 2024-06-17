@@ -1,7 +1,7 @@
 //----------------------------------------------------
 // The file for worseGPT
 //----------------------------------------------------
-convo = {}
+var convo = {}
 function gpt_init(model="gpt-4o", maxTokens="4000", temperature="1", topP="1", presencePenalty="0", frequencyPenalty="0", systemPrompt="You are ChatGPT, a large language model trained by OpenAI.\nCarefully heed the user's instructions.\nRespond using Markdown."){
 	convo = {
 		"model": "gpt-4o",
@@ -9,18 +9,6 @@ function gpt_init(model="gpt-4o", maxTokens="4000", temperature="1", topP="1", p
 			{
 				"role": "system",
 				"content": systemPrompt
-			},
-			{
-				"role": "user",
-				"content": "Hello!"
-			},
-			{
-				"role": "assistant",
-				"content": "yo whats cracking"
-			},
-			{
-				"role": "user",
-				"content": "not much B, whats 9 plus 10?"
 			}
 		],
 		"config": {
@@ -35,5 +23,17 @@ function gpt_init(model="gpt-4o", maxTokens="4000", temperature="1", topP="1", p
 }
 
 function gpt_send(){
-	
+	alert(JSON.stringify(convo))
+}
+
+function message(instr = ""){
+	if(instr == ""){
+		alert("Please enter a message before sending!")
+	} else {
+		newmsg = {
+			"role": "user",
+			"content": instr
+		}
+		convo.messages.push()
+	}
 }
