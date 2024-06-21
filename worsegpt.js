@@ -26,7 +26,14 @@ function gpt_init(model="gpt-4o", maxTokens="4000", temperature="1", topP="1", p
 
 function gpt_send(){
 	//alert(JSON.stringify(convo))
-	
+	var xmlHttp = new XMLHttpRequest();
+	xmlHttp.open( "POST", "https://api.openai.com/v1/chat/completions", false ); // false for synchronous request
+	xmlHttp.setRequestHeader("Content-Type","application/json")
+	xmlHttp.setRequestHeader("Authorization","Bearer " + key)
+
+	xmlHttp.send(JSON.stringify(convo));
+	output = xmlHttp.responseText;
+	convo = (JSON.parse(output));
 }
 
 function message(instr = ""){
