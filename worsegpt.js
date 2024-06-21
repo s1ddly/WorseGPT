@@ -2,7 +2,8 @@
 // The file for worseGPT
 //----------------------------------------------------
 var convo = {}
-function gpt_init(model="gpt-4o", maxTokens="4000", temperature="1", topP="1", presencePenalty="0", frequencyPenalty="0", systemPrompt="You are ChatGPT, a large language model trained by OpenAI.\nCarefully heed the user's instructions.\nRespond using Markdown."){
+var key = ""
+function gpt_init(model="gpt-4o", maxTokens="4000", temperature="1", topP="1", presencePenalty="0", frequencyPenalty="0", systemPrompt="You are ChatGPT, a large language model trained by OpenAI.\nCarefully heed the user's instructions.\nRespond using Markdown.",apikey=""){
 	convo = {
 		"model": "gpt-4o",
 		"messages": [
@@ -20,10 +21,12 @@ function gpt_init(model="gpt-4o", maxTokens="4000", temperature="1", topP="1", p
 			"frequency_penalty": frequencyPenalty
 		}
 	}
+	key = apikey;
 }
 
 function gpt_send(){
-	alert(JSON.stringify(convo))
+	//alert(JSON.stringify(convo))
+	
 }
 
 function message(instr = ""){
