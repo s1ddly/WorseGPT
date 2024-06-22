@@ -9,16 +9,37 @@
 			}
 		</style>
 		<script src="worsegpt.js"></script>
+		<script src="js/showdown.js"></script>
 		<script type="text/javascript">
 			document.onload = gpt_init();
 			function submit(){
 				strcontent = document.getElementById("userText").value;
 				message(strcontent);
+				render_chat();
 			}
 			function init(){
 				apikey = document.getElementById("key").value
 				//alert(apikey)
 				gpt_init("gpt-4o", "4000", "1", "1", "0", "0", "You are ChatGPT, a large language model trained by OpenAI.\nCarefully heed the user's instructions.\nRespond using Markdown.",apikey);
+			}
+			function render_chat(){
+				document.getElementById("render").innerHTML = "";
+				outcode = ""
+				for (var i = 0; i < convo.messages.length; i++){
+					if(convo.messages[i].role == "system"){
+						outcode += "<h2>System:</h2>\n";
+						outcode += "<p>" + convo.messages[i].content + "</p>\n";
+					}
+					else if(convo.messages[i].role == "user"){
+						outcode += "<h2>User:</h2>\n";
+						outcode += "<p>" + convo.messages[i].content + "</p>\n";
+					} else {
+						outcode += "<h2>ChatGPT:</h2>\n";
+						var converter = new showdown.Converter(), text = convo.messages[i].content, out_html = converter.makeHtml(text);
+						outcode += out_html + "\n";
+					}
+				}
+				document.getElementById("render").innerHTML = outcode;
 			}
 		</script>
 	</head>
@@ -88,8 +109,9 @@
 Carefully heed the user's instructions.
 Respond using Markdown.</textarea>
 		</div>
-		<textarea style='height: 200px; width: 100%;' id="Convo"> </textarea>
-		<br>
+		<div id="render">
+		
+		</div>
 		<h3>Input:</h3>
 		<div style="display: flex">
 			<textarea type="text" id="userText" style="width: 100%"></textarea>
