@@ -30,7 +30,8 @@ function gpt_send(){
 
 	xmlHttp.send(JSON.stringify(convo));
 	output = xmlHttp.responseText;
-	convo = (JSON.parse(output));
+	convo.messages.push(JSON.parse(output).choices[0].message)
+	//convo = (JSON.parse(output));
 }
 
 function message(instr = ""){
