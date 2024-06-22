@@ -12,14 +12,11 @@ function gpt_init(model="gpt-4o", maxTokens="4000", temperature="1", topP="1", p
 				"content": systemPrompt
 			}
 		],
-		"config": {
-			"max_tokens": maxTokens,
-			"model": model,
-			"temperature": temperature,
-			"presence_penalty": presencePenalty,
-			"top_p": topP,
-			"frequency_penalty": frequencyPenalty
-		}
+		"max_tokens": parseInt(maxTokens),
+		"temperature": parseInt(temperature),
+		"presence_penalty": parseInt(presencePenalty),
+		"top_p": parseInt(topP),
+		"frequency_penalty": parseInt(frequencyPenalty)
 	}
 	key = apikey;
 }

@@ -15,6 +15,11 @@
 				strcontent = document.getElementById("userText").value;
 				message(strcontent);
 			}
+			function init(){
+				apikey = document.getElementById("key").value
+				//alert(apikey)
+				gpt_init("gpt-4o", "4000", "1", "1", "0", "0", "You are ChatGPT, a large language model trained by OpenAI.\nCarefully heed the user's instructions.\nRespond using Markdown.",apikey);
+			}
 		</script>
 	</head>
 	<body>
@@ -88,6 +93,9 @@ Respond using Markdown.</textarea>
 		<h3>Input:</h3>
 		<div style="display: flex">
 			<textarea type="text" id="userText" style="width: 100%"></textarea>
+			<button type="button" onclick="init()">
+				Initialise
+			</button>
 			<button type="button" onclick="submit()">
 				Send
 			</button>
