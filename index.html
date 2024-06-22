@@ -20,7 +20,14 @@
 			function init(){
 				apikey = document.getElementById("key").value
 				//alert(apikey)
-				gpt_init("gpt-4o", "4000", "1", "1", "0", "0", "You are ChatGPT, a large language model trained by OpenAI.\nCarefully heed the user's instructions.\nRespond using Markdown.",apikey);
+				init_model = document.getElementById("Model").value
+				init_max_token = document.getElementById("maxToken").value
+				init_temperature = document.getElementById("temperature").value
+				init_top_p = document.getElementById("topP").value
+				init_presence_penalty = document.getElementById("presencePenalty").value
+				init_frequency_penalty = document.getElementById("frequencyPenalty").value
+				init_system_prompt = document.getElementById("systemPrompt").value
+				gpt_init(init_model, init_max_token, init_temperature, init_top_p, init_presence_penalty, init_frequency_penalty, init_system_prompt,apikey);
 			}
 			function render_chat(){
 				document.getElementById("render").innerHTML = "";
@@ -35,7 +42,7 @@
 						outcode += "<p>" + convo.messages[i].content + "</p>\n";
 					} else {
 						outcode += "<h2>ChatGPT:</h2>\n";
-						var converter = new showdown.Converter(), text = convo.messages[i].content, out_html = converter.makeHtml(text);
+						var converter = new showdown.Converter({tables: true}), text = convo.messages[i].content, out_html = converter.makeHtml(text);
 						outcode += out_html + "\n";
 					}
 				}
