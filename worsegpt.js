@@ -3,7 +3,7 @@
 //----------------------------------------------------
 var convo = {}
 var key = ""
-function gpt_init(model="gpt-4o", maxTokens="4000", temperature="1", topP="1", presencePenalty="0", frequencyPenalty="0", systemPrompt="You are ChatGPT, a large language model trained by OpenAI.\nCarefully heed the user's instructions.\nRespond using Markdown.",apikey=""){
+function gpt_init(model="gpt-4o", maxTokens="4000", temperature="1", topP="1", presencePenalty="0", frequencyPenalty="0", systemPrompt="",apikey=""){
 	convo = {
 		"model": "gpt-4o",
 		"messages": [
